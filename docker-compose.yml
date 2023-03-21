@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+    rhel7_1:
+        image: openebs/rhel7:latest
+        container_name: rhel7_1
+        hostname: rhel7_1
+        networks:
+            rhel7_net:
+                ipv4_address: 172.16.238.10
+
+    rhel7_2:
+        image: openebs/rhel7:latest
+        container_name: rhel7_2
+        hostname: rhel7_2
+        networks:
+            rhel7_net:
+                ipv4_address: 172.16.238.11
+
+    rhel7_3:
+        image: openebs/rhel7:latest
+        container_name: rhel7_3
+        hostname: rhel7_3
+        networks:
+            rhel7_net:
+                ipv4_address: 172.16.238.12
+
+networks:
+    rhel7_net:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.16.238.0/24
